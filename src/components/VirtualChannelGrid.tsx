@@ -16,7 +16,11 @@ export default function VirtualChannelGrid({
     const node = parent.current;
     if (!node) return;
     const update = () =>
-      setColumns(node.clientWidth < 600 ? 2 : node.clientWidth < 1000 ? 3 : 4);
+      setColumns(
+        node.clientWidth < 640
+          ? 2
+          : Math.max(2, Math.floor((node.clientWidth + 20) / 260)),
+      );
     const observer = new ResizeObserver(update);
     observer.observe(node);
     update();
@@ -26,7 +30,7 @@ export default function VirtualChannelGrid({
   const virtual = useVirtualizer({
     count: Math.ceil(channels.length / columns),
     getScrollElement: () => parent.current,
-    estimateSize: () => (columns === 2 ? 215 : 245),
+    estimateSize: () => (columns === 2 ? 245 : 285),
     overscan: 3,
   });
   return (

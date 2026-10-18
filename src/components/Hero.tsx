@@ -1,4 +1,5 @@
 import { useEffect, useRef } from "react";
+import ParticleGlobe from "./ParticleGlobe";
 export default function Hero() {
   const root = useRef<HTMLElement>(null);
   useEffect(() => {
@@ -23,22 +24,6 @@ export default function Hero() {
               scale: 0.92,
               duration: 1.2,
               ease: "power2.out",
-            });
-            gsap.to(".globe", {
-              y: -9,
-              duration: 4,
-              repeat: -1,
-              yoyo: true,
-              ease: "sine.inOut",
-            });
-            gsap.to(".signal", {
-              opacity: 0.3,
-              scale: 0.65,
-              duration: 1.8,
-              repeat: -1,
-              yoyo: true,
-              stagger: 0.4,
-              ease: "sine.inOut",
             });
           }, root);
           return () => context.revert();
@@ -78,20 +63,7 @@ export default function Hero() {
         </p>
       </div>
       <div className="globe-scene" aria-hidden="true">
-        <div className="orbit orbit-one" />
-        <div className="orbit orbit-two" />
-        <div className="globe">
-          <div className="meridian m1" />
-          <div className="meridian m2" />
-          <div className="meridian m3" />
-          <div className="parallel p1" />
-          <div className="parallel p2" />
-          <div className="parallel p3" />
-          <div className="globe-equator" />
-        </div>
-        <span className="signal s1" />
-        <span className="signal s2" />
-        <span className="signal s3" />
+        <ParticleGlobe />
         <div className="floating-label">
           <i /> CONNECTED BY CURIOSITY
         </div>

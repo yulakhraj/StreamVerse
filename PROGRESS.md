@@ -125,3 +125,16 @@ User authorized pushing to GitHub and deploying to Vercel. The existing remote i
 Verified: 22 tests, strict typecheck, lint and production build pass. HTTP smoke testing confirms the Vercel entry point serves health and fails closed without its required secret.
 
 Deployment blocker: Vercel project creation returned 403 for the connected `prashantkrr999-7700s-projects` team. No Vercel CLI credential is available as a fallback. Reconnection with access to the intended team is needed before project creation, secret configuration and production deployment can complete. No Vercel project or deployment was created by the rejected operation.
+
+
+## Iteration 13 — Readable layout and day/night mode
+
+Replaced the narrow capped layout with fluid desktop gutters, shortened the hero, enlarged navigation, controls, card text and metadata, and aligned virtualized grid measurements with responsive card widths. Introduced semantic dark/light colors across home, browsing, search and player. Added an accessible header theme toggle with persisted preference, system-theme default and prepaint initialization.
+
+Verified: strict typecheck, lint, all 25 tests and production build pass. Three new tests cover switching themes, persistence, following system preference and unavailable storage. Desktop/mobile visual inspection remains unverified under the approved code/build-only approach.
+
+## Iteration 14 — Star globe and satellite motion
+
+Replaced the wireframe globe with a canvas sphere of 420 deterministic star-like dots, background stars and two orbiting satellite lights with fading trails. Integer orbit speeds keep the 50-second loop seamless. Colors follow the selected theme. Reduced motion renders a static scene; offscreen and hidden-tab animation pauses. The compact mobile decoration remains faint to preserve text readability.
+
+Verified: strict typecheck, lint, all 25 tests and production build pass. The existing deferred HLS chunk-size warning remains. Browser rendering, animation smoothness and live playback remain unverified; no browser-control tool is available. User requested GitHub push when finished.

@@ -2,6 +2,24 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
+    <script>
+      (() => {
+        let theme;
+        try {
+          theme = JSON.parse(
+            localStorage.getItem("streamverse-preferences-v1") || "{}",
+          ).state?.theme;
+        } catch {
+          /* Storage may be unavailable or contain an older value. */
+        }
+        document.documentElement.dataset.theme =
+          theme === "light" || theme === "dark"
+            ? theme
+            : matchMedia("(prefers-color-scheme: dark)").matches
+              ? "dark"
+              : "light";
+      })();
+    </script>
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta
       name="description"

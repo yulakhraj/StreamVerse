@@ -2,6 +2,8 @@ import { create } from "zustand";
 import { createJSONStorage, persist } from "zustand/middleware";
 import type { Selection } from "./store";
 interface Preferences {
+  theme: "light" | "dark" | null;
+  setTheme: (theme: "light" | "dark") => void;
   favorites: string[];
   recents: string[];
   hidden: string[];
@@ -15,6 +17,8 @@ interface Preferences {
 export const usePreferences = create<Preferences>()(
   persist(
     (set) => ({
+      theme: null,
+      setTheme: (theme) => set({ theme }),
       favorites: [],
       recents: [],
       hidden: [],
@@ -59,6 +63,7 @@ export const usePreferences = create<Preferences>()(
         },
       })),
       partialize: (s) => ({
+        theme: s.theme,
         favorites: s.favorites,
         recents: s.recents,
         hidden: s.hidden,

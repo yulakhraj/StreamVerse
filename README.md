@@ -2,6 +2,8 @@
 
 A cinematic, region-first browser for open, public IPTV. Built with React, Vite, strict TypeScript, Tailwind CSS, Framer Motion, GSAP, hls.js, Fuse.js, Zustand and a small Express fallback proxy.
 
+The interface uses a fluid layout with larger, higher-contrast text. The header’s day/night toggle remembers your choice; before a choice, it follows your system theme. The home globe is a rotating sphere of star-like dots with orbiting satellite lights. Reduced-motion preferences keep it static, and animation pauses offscreen or in a hidden tab.
+
 ## Run locally
 
 Use Node.js 24 (see `.nvmrc`) and npm.

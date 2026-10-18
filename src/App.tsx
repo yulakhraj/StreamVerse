@@ -8,6 +8,7 @@ import {
   useReducedMotion,
 } from "framer-motion";
 import { usePreferences } from "./lib/preferences";
+import ThemeToggle from "./components/ThemeToggle";
 import Hero from "./components/Hero";
 import RegionPicker from "./components/RegionPicker";
 import { useCatalog } from "./lib/useCatalog";
@@ -62,15 +63,18 @@ function App() {
             Stream<span>Verse</span>
             <span className="beta">BETA</span>
           </button>
-          <button
-            className="search-trigger"
-            onClick={() => setSearchOpen(true)}
-            aria-label="Search channels (Control or Command K)"
-          >
-            <span>⌕</span>{" "}
-            <span className="search-trigger-text">Search channels</span>
-            <kbd>⌘ K</kbd>
-          </button>
+          <div className="header-actions">
+            <button
+              className="search-trigger"
+              onClick={() => setSearchOpen(true)}
+              aria-label="Search channels (Control or Command K)"
+            >
+              <span>⌕</span>{" "}
+              <span className="search-trigger-text">Search channels</span>
+              <kbd>⌘ K</kbd>
+            </button>
+            <ThemeToggle />
+          </div>
         </header>
         <nav className="main-nav" aria-label="Main navigation">
           <button

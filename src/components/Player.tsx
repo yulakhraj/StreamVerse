@@ -244,7 +244,7 @@ export default function Player({
         </header>
         <div className="player-layout">
           <section className="screen-area" aria-label="Video player">
-            <div className="video-wrap">
+            <div className={`video-wrap${offline ? " is-offline" : ""}`}>
               <video
                 ref={video}
                 tabIndex={offline ? -1 : 0}
